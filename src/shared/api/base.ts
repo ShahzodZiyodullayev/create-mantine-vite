@@ -1,7 +1,7 @@
-// import { logout, store } from "@app/store";
 import axios, { type AxiosResponse } from "axios";
 
-// import { store } from "@/app/store";
+import { store } from "@/app/store";
+import { logout } from "@/features/auth";
 
 function newAbortSignal(timeoutMs: number) {
   const abortController = new AbortController();
@@ -14,61 +14,48 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(
-  config => {
-    config.headers["Cache-Control"] = "no-cache ";
+  (config) => {
+    config.headers["Cache-Control"] = "no-cache";
     config.headers["Pragma"] = "no-cache";
 
-    // const accessToken = store.getState()?.auth?.accessToken;
+    const accessToken = store.getState().auth.accessToken;
 
     if (config.method === "get") {
       config.signal = newAbortSignal(10000);
     }
 
-    // if (accessToken) {
-    //   config.headers.Authorization = accessToken;
-    // }
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
+    }
 
     return config;
   },
-  error => {
-    return Promise.reject(error);
-  },
+  (error) => Promise.reject(error),
 );
 
 api.interceptors.response.use(
-  response => {
-    return response.data;
-  },
-  error => {
-    const { response } = error;
-
-    return handleError(response);
-  },
+  (response) => response.data,
+  (error) => handleError(error.response),
 );
 
-// Error handling function
 function handleError(response: AxiosResponse) {
+  if (!response) throw new Error("Network error");
+
   const { status, data } = response;
 
-  if (status && status >= 400 && status <= 600) {
+  if (status >= 400 && status <= 600) {
     const messages = data?.message;
 
-    // if (status === 401 || status === 426) {
-    //   localStorage.clear();
-    //   store.dispatch(logout());
-    // }
-
-    if (typeof messages === "string" || Array.isArray(messages)) {
-      if (Array.isArray(messages)) {
-        const [message] = messages;
-
-        throw new Error(message);
-      }
-
-      throw new Error(messages);
+    if (status === 401 || status === 426) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      store.dispatch(logout());
     }
 
-    throw Error(String(response));
+    if (typeof messages === "string") throw new Error(messages);
+    if (Array.isArray(messages)) throw new Error(messages[0]);
+
+    throw new Error(`Request failed with status ${status}`);
   }
 
   if ("data" in response) return response;
