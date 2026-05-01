@@ -1,0 +1,16 @@
+{
+  "name": "Mantine Vite Template",
+  "short_name": "Mantine Vite",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#1971c2",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
