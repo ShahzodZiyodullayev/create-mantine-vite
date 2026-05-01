@@ -1,24 +1,30 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryCache,
+  MutationCache,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { type ReactNode } from "react";
-import { useDispatch } from "react-redux";
 
+import { store } from "@/app/store";
 import { setError } from "@/shared/model";
 
-export const QueryProvider = ({ children }: { children: ReactNode }) => {
-  const dispatch = useDispatch();
-
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: false,
-        // @ts-ignore
-        onError: (err: any) => dispatch(setError(err.message)),
-      },
-      mutations: {
-        onError: (err: any) => dispatch(setError(err.message)),
-      },
-    },
-  });
-
-  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+const handleError = (err: unknown) => {
+  const message = err instanceof Error ? err.message : "Unknown error";
+  store.dispatch(setError(message));
 };
+
+const queryClient = new QueryClient({
+  queryCache: new QueryCache({ onError: handleError }),
+  mutationCache: new MutationCache({ onError: handleError }),
+  defaultOptions: {
+    queries: {
+      retry: false,
+      throwOnError: false,
+    },
+  },
+});
+
+export const QueryProvider = ({ children }: { children: ReactNode }) => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+);
