@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { visualizer } from "rollup-plugin-visualizer";
+import sitemap from "vite-plugin-sitemap";
 import path from "node:path";
 import svgr from "vite-plugin-svgr";
 
@@ -9,9 +10,13 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    visualizer({ open: true, template: "treemap" }),
+    visualizer({ open: false, template: "treemap" }),
     svgr(),
-  ].filter(Boolean),
+    sitemap({
+      hostname: process.env.VITE_SITE_URL || "https://your-domain.com",
+      dynamicRoutes: ["/", "/login", "/users"],
+    }),
+  ],
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
