@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/app/store";
 import { clearError } from "@/shared/model";
 
 export const GlobalErrorNotification = () => {
-  const message = useAppSelector((state) => state.error.message);
+  const message = useAppSelector(state => state.error.message);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

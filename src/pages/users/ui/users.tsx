@@ -1,11 +1,4 @@
-import {
-  Alert,
-  Avatar,
-  Container,
-  Skeleton,
-  Table,
-  Title,
-} from "@mantine/core";
+import { Alert, Avatar, Container, Skeleton, Table, Title } from "@mantine/core";
 
 import { useUsers } from "@/entities/user";
 import { SEO } from "@/shared/lib/seo";
@@ -24,11 +17,7 @@ export default function Users() {
 
   return (
     <Container>
-      <SEO
-        title="Users"
-        description="Browse all users from the demo API."
-        jsonLd={breadcrumbLd}
-      />
+      <SEO title="Users" description="Browse all users from the demo API." jsonLd={breadcrumbLd} />
       <Title order={2} mb="md">
         Users
       </Title>
@@ -52,7 +41,7 @@ export default function Users() {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {data.users.map((u) => (
+            {data.users.map(u => (
               <Table.Tr key={u.id}>
                 <Table.Td>
                   <Avatar src={u.image} size="sm" radius="xl" />

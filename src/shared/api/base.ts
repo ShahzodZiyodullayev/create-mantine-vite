@@ -1,7 +1,7 @@
 import axios, { type AxiosResponse } from "axios";
 
 import { store } from "@/app/store";
-import { logout } from "@/features/auth";
+import { logout } from "@/features/auth/model/auth-slice";
 
 function newAbortSignal(timeoutMs: number) {
   const abortController = new AbortController();
@@ -14,7 +14,7 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use(
-  (config) => {
+  config => {
     config.headers["Cache-Control"] = "no-cache";
     config.headers["Pragma"] = "no-cache";
 
@@ -30,12 +30,12 @@ api.interceptors.request.use(
 
     return config;
   },
-  (error) => Promise.reject(error),
+  error => Promise.reject(error),
 );
 
 api.interceptors.response.use(
-  (response) => response.data,
-  (error) => handleError(error.response),
+  response => response.data,
+  error => handleError(error.response),
 );
 
 function handleError(response: AxiosResponse) {

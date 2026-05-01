@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/app/store";
 
 import { authApi, type LoginDto } from "../api/auth-api";
-import { logout, setCredentials } from "./auth-slice";
+import { type AuthUser, logout, setCredentials } from "./auth-slice";
 
 export const useLogin = () => {
   const dispatch = useAppDispatch();
@@ -13,11 +13,18 @@ export const useLogin = () => {
 
   return useMutation({
     mutationFn: (data: LoginDto) => authApi.login(data),
-    onSuccess: (data) => {
-      const { accessToken, refreshToken: _refreshToken, ...user } = data;
-      localStorage.setItem("token", accessToken);
+    onSuccess: data => {
+      const user: AuthUser = {
+        id: data.id,
+        username: data.username,
+        email: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        image: data.image,
+      };
+      localStorage.setItem("token", data.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
-      dispatch(setCredentials({ user, accessToken }));
+      dispatch(setCredentials({ user, accessToken: data.accessToken }));
       navigate("/");
     },
   });

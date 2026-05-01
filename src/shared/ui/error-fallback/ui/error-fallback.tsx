@@ -1,12 +1,4 @@
-import {
-  Alert,
-  Button,
-  Code,
-  Container,
-  Group,
-  Stack,
-  Title,
-} from "@mantine/core";
+import { Alert, Button, Code, Container, Group, Stack, Title } from "@mantine/core";
 
 type Props = {
   error: unknown;

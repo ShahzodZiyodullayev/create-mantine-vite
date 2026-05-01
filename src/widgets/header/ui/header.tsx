@@ -5,7 +5,7 @@ import { useAppSelector } from "@/app/store";
 import { useLogout } from "@/features/auth";
 
 export const Header = () => {
-  const user = useAppSelector((s) => s.auth.user);
+  const user = useAppSelector(s => s.auth.user);
   const logout = useLogout();
 
   return (

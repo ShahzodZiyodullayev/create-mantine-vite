@@ -1,9 +1,4 @@
-import {
-  QueryClient,
-  QueryCache,
-  MutationCache,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryCache, MutationCache, QueryClientProvider } from "@tanstack/react-query";
 import { type ReactNode } from "react";
 
 import { store } from "@/app/store";

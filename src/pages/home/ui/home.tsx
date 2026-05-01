@@ -21,18 +21,24 @@ export default function Home() {
       <Stack>
         <Title order={1}>Mantine Vite Template</Title>
         <Text c="dimmed">
-          A production-ready starter with FSD architecture, auth flow, TanStack Query,
-          and SEO out of the box.
+          A production-ready starter with FSD architecture, auth flow, TanStack Query, and SEO out
+          of the box.
         </Text>
         <Title order={3} mt="md">
           What's inside
         </Title>
         <List>
           <List.Item>
-            <Anchor component={Link} to="/login">Login</Anchor> — Mantine form + axios + Redux
+            <Anchor component={Link} to="/login">
+              Login
+            </Anchor>{" "}
+            — Mantine form + axios + Redux
           </List.Item>
           <List.Item>
-            <Anchor component={Link} to="/users">Users</Anchor> — TanStack Query list demo
+            <Anchor component={Link} to="/users">
+              Users
+            </Anchor>{" "}
+            — TanStack Query list demo
           </List.Item>
           <List.Item>Multi-layer error boundaries (app, route, query)</List.Item>
           <List.Item>SEO via React 19 native metadata + sitemap.xml</List.Item>

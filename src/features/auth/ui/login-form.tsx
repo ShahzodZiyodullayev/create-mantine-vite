@@ -9,19 +9,15 @@ export const LoginForm = () => {
   const form = useForm({
     initialValues: { username: "", password: "" },
     validate: {
-      username: (value) => (value.trim().length > 0 ? null : "Username is required"),
-      password: (value) => (value.length > 0 ? null : "Password is required"),
+      username: value => (value.trim().length > 0 ? null : "Username is required"),
+      password: value => (value.length > 0 ? null : "Password is required"),
     },
   });
 
   return (
-    <form onSubmit={form.onSubmit((values) => login.mutate(values))}>
+    <form onSubmit={form.onSubmit(values => login.mutate(values))}>
       <Stack>
-        <TextInput
-          label="Username"
-          placeholder="emilys"
-          {...form.getInputProps("username")}
-        />
+        <TextInput label="Username" placeholder="emilys" {...form.getInputProps("username")} />
         <PasswordInput
           label="Password"
           placeholder="emilyspass"
