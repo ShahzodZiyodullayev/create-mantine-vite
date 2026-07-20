@@ -2,11 +2,7 @@ node_modules
 dist
 stats.html
 .env
-.env.local
-.env.*.local
-package-lock.json
+*.log
 .idea
 .vscode
-*.log
 .DS_Store
-*.tgz

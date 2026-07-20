@@ -1,0 +1,52 @@
+{
+  "name": "create-mantine-vite",
+  "version": "2.0.0",
+  "description": "Scaffold a new project from the Mantine + Vite + FSD starter template.",
+  "type": "module",
+  "bin": {
+    "create-mantine-vite": "bin/cli.js"
+  },
+  "scripts": {
+    "postinstall": "node bin/postinstall.js"
+  },
+  "files": [
+    "bin/**",
+    "templates/**",
+    "README.md",
+    "README.uz.md"
+  ],
+  "keywords": [
+    "vite",
+    "template",
+    "react",
+    "typescript",
+    "mantine",
+    "fsd",
+    "starter",
+    "boilerplate",
+    "create-app",
+    "scaffold",
+    "cli",
+    "tanstack-query",
+    "redux-toolkit",
+    "feature-sliced-design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShahzodZiyodullayev/create-mantine-vite.git",
+    "directory": "packages/create-mantine-vite"
+  },
+  "homepage": "https://github.com/ShahzodZiyodullayev/create-mantine-vite#readme",
+  "bugs": {
+    "url": "https://github.com/ShahzodZiyodullayev/create-mantine-vite/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Shahzod Ziyodullayev",
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "picocolors": "^1.1.1"
+  }
+}
