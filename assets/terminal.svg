@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="552" viewBox="0 0 560 552" role="img" aria-label="Terminal session showing npx create-mantine-vite scaffolding a project">
+  <style>
+    .mono  { font-family: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace; font-size: 13px; }
+    .dim   { fill: #868e96; }
+    .ink   { fill: #101418; }
+    .faint { fill: #ced4da; }
+    .blue  { fill: #339af0; }
+    .ok    { fill: #2f9e44; }
+  </style>
+
+  <rect width="560" height="552" rx="8" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="559" height="551" rx="8" fill="none" stroke="#e9ecef"/>
+
+  <path d="M0 8a8 8 0 0 1 8-8h544a8 8 0 0 1 8 8v32H0z" fill="#f8f9fa"/>
+  <line x1="0" y1="40" x2="560" y2="40" stroke="#e9ecef"/>
+  <circle cx="22" cy="20" r="4" fill="#dee2e6"/>
+  <circle cx="38" cy="20" r="4" fill="#dee2e6"/>
+  <circle cx="54" cy="20" r="4" fill="#dee2e6"/>
+
+  <text x="28" y="76" class="mono"><tspan class="faint">$ </tspan><tspan class="ink">npx create-mantine-vite my-app</tspan></text>
+
+  <!-- The CLI's REACT banner, drawn from its own block-character grid as rects:
+       as <text> the full-block glyph either gaps or overlaps at this size. -->
+  <g fill="#339af0">
+    <rect x="40" y="100" width="36" height="12"/>
+    <rect x="88" y="100" width="42" height="12"/>
+    <rect x="142" y="100" width="30" height="12"/>
+    <rect x="190" y="100" width="36" height="12"/>
+    <rect x="232" y="100" width="48" height="12"/>
+    <rect x="40" y="112" width="12" height="12"/>
+    <rect x="70" y="112" width="12" height="12"/>
+    <rect x="88" y="112" width="12" height="12"/>
+    <rect x="136" y="112" width="12" height="12"/>
+    <rect x="166" y="112" width="12" height="12"/>
+    <rect x="184" y="112" width="12" height="12"/>
+    <rect x="250" y="112" width="12" height="12"/>
+    <rect x="40" y="124" width="36" height="12"/>
+    <rect x="88" y="124" width="30" height="12"/>
+    <rect x="136" y="124" width="42" height="12"/>
+    <rect x="184" y="124" width="12" height="12"/>
+    <rect x="250" y="124" width="12" height="12"/>
+    <rect x="40" y="136" width="12" height="12"/>
+    <rect x="70" y="136" width="12" height="12"/>
+    <rect x="88" y="136" width="12" height="12"/>
+    <rect x="136" y="136" width="12" height="12"/>
+    <rect x="166" y="136" width="12" height="12"/>
+    <rect x="184" y="136" width="12" height="12"/>
+    <rect x="250" y="136" width="12" height="12"/>
+    <rect x="40" y="148" width="12" height="12"/>
+    <rect x="70" y="148" width="12" height="12"/>
+    <rect x="88" y="148" width="42" height="12"/>
+    <rect x="136" y="148" width="12" height="12"/>
+    <rect x="166" y="148" width="12" height="12"/>
+    <rect x="190" y="148" width="36" height="12"/>
+    <rect x="250" y="148" width="12" height="12"/>
+  </g>
+
+  <text x="28" y="202" class="mono dim">  ⚡ Mantine + Vite project generator</text>
+
+  <text x="28" y="244" class="mono"><tspan class="faint">◆  </tspan><tspan class="ink">Qaysi template'ni o'rnatamiz?</tspan></text>
+  <text x="28" y="266" class="mono"><tspan class="faint">│  </tspan><tspan class="blue">●</tspan><tspan class="ink"> React + Mantine + Vite (FSD)</tspan></text>
+  <text x="28" y="288" class="mono"><tspan class="faint">│  ○</tspan><tspan class="dim"> Test Template</tspan></text>
+  <text x="28" y="310" class="mono faint">│</text>
+
+  <text x="28" y="342" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Template nusxalandi</tspan></text>
+  <text x="28" y="364" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ package.json yangilandi</tspan></text>
+  <text x="28" y="386" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Paketlar o'rnatildi (48s)</tspan></text>
+
+  <text x="28" y="428" class="mono ok">🎉  Tayyor!</text>
+
+  <text x="28" y="470" class="mono dim">  Keyingi qadamlar:</text>
+  <text x="28" y="492" class="mono"><tspan class="blue">    cd</tspan><tspan class="ink"> my-app</tspan></text>
+  <text x="28" y="514" class="mono"><tspan class="blue">    yarn</tspan><tspan class="ink"> dev</tspan></text>
+</svg>

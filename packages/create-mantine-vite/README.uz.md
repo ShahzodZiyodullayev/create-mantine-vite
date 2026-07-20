@@ -1,4 +1,8 @@
-# create-mantine-vite
+<img src="https://raw.githubusercontent.com/ShahzodZiyodullayev/create-mantine-vite/main/assets/hero.png" alt="npx create-mantine-vite" width="100%">
+
+[![npm](https://img.shields.io/npm/v/create-mantine-vite?color=339af0&labelColor=101418)](https://www.npmjs.com/package/create-mantine-vite)
+[![downloads](https://img.shields.io/npm/dm/create-mantine-vite?color=339af0&labelColor=101418)](https://www.npmjs.com/package/create-mantine-vite)
+[![node](https://img.shields.io/node/v/create-mantine-vite?color=339af0&labelColor=101418)](https://nodejs.org)
 
 > 🇬🇧 [English version](./README.md)
 
@@ -13,6 +17,8 @@ npx create-mantine-vite@latest my-app
 
 > **`npm install create-mantine-vite` qilmang.** Bu — kutubxona emas, loyiha yaratuvchi CLI.
 > Uni dependency sifatida o'rnatish hech narsa bermaydi. Yuqoridagidek `npx` ishlating.
+
+<img src="https://raw.githubusercontent.com/ShahzodZiyodullayev/create-mantine-vite/main/assets/terminal.png" alt="CLI ishlayotgani" width="560">
 
 CLI quyidagilarni bajaradi:
 

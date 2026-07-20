@@ -1,4 +1,9 @@
-# create-mantine-vite
+<img src="./assets/hero.png" alt="npx create-mantine-vite — production-ready React starter with Feature-Sliced Design" width="100%">
+
+[![npm](https://img.shields.io/npm/v/create-mantine-vite?color=339af0&labelColor=101418)](https://www.npmjs.com/package/create-mantine-vite)
+[![downloads](https://img.shields.io/npm/dm/create-mantine-vite?color=339af0&labelColor=101418)](https://www.npmjs.com/package/create-mantine-vite)
+[![node](https://img.shields.io/node/v/create-mantine-vite?color=339af0&labelColor=101418)](https://nodejs.org)
+[![license](https://img.shields.io/npm/l/create-mantine-vite?color=339af0&labelColor=101418)](./LICENSE)
 
 Scaffold a production-ready **React + Mantine + Vite** project in one command.
 
@@ -9,6 +14,8 @@ yarn dev
 ```
 
 > This is a scaffolding CLI, not a library — do not `npm install` it.
+
+<img src="./assets/terminal.png" alt="The CLI prompting for a template and scaffolding a project" width="560">
 
 ## What you get
 
