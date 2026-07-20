@@ -5,7 +5,7 @@
 [![node](https://img.shields.io/node/v/create-mantine-vite?color=339af0&labelColor=101418)](https://nodejs.org)
 [![license](https://img.shields.io/npm/l/create-mantine-vite?color=339af0&labelColor=101418)](https://github.com/ShahzodZiyodullayev/create-mantine-vite/blob/main/LICENSE)
 
-> 🇺🇿 [O'zbekcha versiyasi](https://github.com/ShahzodZiyodullayev/create-mantine-vite/blob/main/packages/create-mantine-vite/README.uz.md)
+> 🇺🇿 [O'zbekcha versiyasi](https://github.com/ShahzodZiyodullayev/create-mantine-vite/blob/main/README.uz.md)
 
 Scaffold a React + Mantine + Vite project that already has the parts you would
 otherwise spend a day wiring up: auth, server state, routing, error handling,

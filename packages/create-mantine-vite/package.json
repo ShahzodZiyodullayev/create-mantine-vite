@@ -1,6 +1,6 @@
 {
   "name": "create-mantine-vite",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Scaffold a new project from the Mantine + Vite + FSD starter template.",
   "type": "module",
   "bin": {
@@ -12,8 +12,7 @@
   "files": [
     "bin/**",
     "templates/**",
-    "README.md",
-    "README.uz.md"
+    "README.md"
   ],
   "keywords": [
     "vite",
