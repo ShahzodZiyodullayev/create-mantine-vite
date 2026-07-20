@@ -57,18 +57,18 @@
 
   <text x="28" y="202" class="mono dim">  ⚡ Mantine + Vite project generator</text>
 
-  <text x="28" y="244" class="mono"><tspan class="faint">◆  </tspan><tspan class="ink">Qaysi template'ni o'rnatamiz?</tspan></text>
+  <text x="28" y="244" class="mono"><tspan class="faint">◆  </tspan><tspan class="ink">Which template?</tspan></text>
   <text x="28" y="266" class="mono"><tspan class="faint">│  </tspan><tspan class="blue">●</tspan><tspan class="ink"> React + Mantine + Vite (FSD)</tspan></text>
   <text x="28" y="288" class="mono"><tspan class="faint">│  ○</tspan><tspan class="dim"> Test Template</tspan></text>
   <text x="28" y="310" class="mono faint">│</text>
 
-  <text x="28" y="342" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Template nusxalandi</tspan></text>
-  <text x="28" y="364" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ package.json yangilandi</tspan></text>
-  <text x="28" y="386" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Paketlar o'rnatildi (48s)</tspan></text>
+  <text x="28" y="342" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Template copied</tspan></text>
+  <text x="28" y="364" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ package.json updated</tspan></text>
+  <text x="28" y="386" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Dependencies installed (48s)</tspan></text>
 
-  <text x="28" y="428" class="mono ok">🎉  Tayyor!</text>
+  <text x="28" y="428" class="mono ok">🎉  Done!</text>
 
-  <text x="28" y="470" class="mono dim">  Keyingi qadamlar:</text>
+  <text x="28" y="470" class="mono dim">  Next steps:</text>
   <text x="28" y="492" class="mono"><tspan class="blue">    cd</tspan><tspan class="ink"> my-app</tspan></text>
   <text x="28" y="514" class="mono"><tspan class="blue">    yarn</tspan><tspan class="ink"> dev</tspan></text>
 </svg>

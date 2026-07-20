@@ -34,7 +34,7 @@ const TEMPLATES = [
     {
         value: "test-template",
         label: "Test Template",
-        hint: "tez orada qo'shiladi",
+        hint: "coming soon",
         dir: null,
         available: false,
     },
@@ -78,15 +78,15 @@ async function animatedBanner() {
 
     console.log("");
 
-    // 1) Hamma qatorlarni dim chiqaramiz (darhol)
+    // 1) Print every line dim, immediately
     for (const line of lines) {
         console.log(pc.dim(line));
     }
 
-    // 2) Cursor banner boshiga qaytariladi
+    // 2) Move the cursor back to the top of the banner
     process.stdout.write(`\x1b[${lines.length}A`);
 
-    // 3) Har qatorni cyan + bold ga aylantiramiz, ketma-ket
+    // 3) Repaint each line cyan + bold, one after another
     for (const line of lines) {
         process.stdout.write(`\x1b[2K\r${pc.bold(pc.cyan(line))}\n`);
         await sleep(110);
@@ -98,7 +98,7 @@ async function animatedBanner() {
 }
 
 // ───── Pretty exit ─────
-function bye(msg = "O'rnatish bekor qilindi 😏") {
+function bye(msg = "Cancelled.") {
     cancel(msg);
     process.exit(0);
 }
@@ -109,11 +109,11 @@ async function chooseTemplate(preset) {
         const template = TEMPLATES.find((t) => t.value === preset);
         if (!template) {
             const names = TEMPLATES.filter((t) => t.available).map((t) => t.value).join(", ");
-            log.error(`"${preset}" degan template yo'q. Mavjudlari: ${names}`);
+            log.error(`No template named "${preset}". Available: ${names}`);
             process.exit(1);
         }
         if (!template.available) {
-            log.error(`"${preset}" hali mavjud emas.`);
+            log.error(`Template "${preset}" is not available yet.`);
             process.exit(1);
         }
         return template;
@@ -121,7 +121,7 @@ async function chooseTemplate(preset) {
 
     while (true) {
         const value = await select({
-            message: `Qaysi template'ni o'rnatamiz?\n${pc.dim("│")}`,
+            message: `Which template?\n${pc.dim("│")}`,
             options: TEMPLATES.map((t) => ({
                 value: t.value,
                 label: t.available ? t.label : pc.dim(t.label),
@@ -132,10 +132,10 @@ async function chooseTemplate(preset) {
         if (isCancel(value)) bye();
 
         const template = TEMPLATES.find((t) => t.value === value);
-        if (!template) bye("Template tanlanmadi.");
+        if (!template) bye("No template selected.");
 
         if (!template.available) {
-            log.warn(`"${template.label.trim()}" hali mavjud emas. Boshqa template tanlang.`);
+            log.warn(`"${template.label.trim()}" is not available yet. Pick another one.`);
             continue;
         }
         return template;
@@ -146,11 +146,11 @@ async function chooseTemplate(preset) {
 async function chooseProjectName(initial) {
     if (initial && initial.trim()) return initial.trim();
     const name = await text({
-        message: "Loyiha nomi:",
+        message: "Project name:",
         placeholder: "my-app",
         initialValue: "my-app",
         validate: (v) => {
-            if (!v.trim()) return "Bo'sh bo'lishi mumkin emas";
+            if (!v.trim()) return "Project name cannot be empty";
         },
     });
     if (isCancel(name)) bye();
@@ -169,12 +169,12 @@ async function ensureEmptyTarget(targetDir, projectName) {
 
     if (entries.length === 0) return;
 
-    log.warn(`"${projectName}" papkasi mavjud va bo'sh emas (${entries.length} ta element).`);
+    log.warn(`"${projectName}" already exists and is not empty (${entries.length} entries).`);
     const ok = await confirm({
-        message: "Ichidagi hamma narsa o'chirilsinmi?",
+        message: "Delete everything inside it?",
         initialValue: false,
     });
-    if (isCancel(ok) || !ok) bye("Papka o'zgartirilmadi.");
+    if (isCancel(ok) || !ok) bye("Left the folder untouched.");
 
     await fs.rm(targetDir, {recursive: true, force: true});
 }
@@ -204,7 +204,7 @@ async function copyTemplate(srcDir, destDir) {
 // ───── Install runner: pipe output, our spinner, dump on failure ─────
 async function runInstall(cmd, cwd) {
     const s = spinner();
-    s.start(`Paketlar o'rnatilmoqda (${cmd})`);
+    s.start(`Installing dependencies (${cmd})`);
     const startTime = Date.now();
 
     const [bin, ...args] = cmd.split(" ");
@@ -220,7 +220,7 @@ async function runInstall(cmd, cwd) {
 
     const interval = setInterval(() => {
         const elapsed = Math.floor((Date.now() - startTime) / 1000);
-        s.message(`Paketlar o'rnatilmoqda (${cmd}) — ${elapsed}s`);
+        s.message(`Installing dependencies (${cmd}) — ${elapsed}s`);
     }, 1000);
 
     const exitCode = await new Promise((resolve) => {
@@ -232,11 +232,11 @@ async function runInstall(cmd, cwd) {
     const elapsed = Math.floor((Date.now() - startTime) / 1000);
 
     if (exitCode === 0) {
-        s.stop(pc.green(`✓ Paketlar o'rnatildi (${elapsed}s)`));
+        s.stop(pc.green(`✓ Dependencies installed (${elapsed}s)`));
         return true;
     }
 
-    s.stop(pc.red(`✗ Paketlarni o'rnatib bo'lmadi (${cmd})`));
+    s.stop(pc.red(`✗ Could not install dependencies (${cmd})`));
     const output = Buffer.concat(chunks).toString();
     if (output.trim()) {
         console.error(pc.dim("\n  ─── output ───"));
@@ -269,28 +269,28 @@ const presetTemplate = args
 
     // 1. Copy the template out of this package
     const copySpinner = spinner();
-    copySpinner.start(`Template tayyorlanmoqda — ${template.label.trim()}`);
+    copySpinner.start(`Preparing template — ${template.label.trim()}`);
     const srcDir = path.join(TEMPLATES_DIR, template.dir);
     try {
         await fs.access(srcDir);
     } catch {
-        copySpinner.stop(pc.red("✗ Template topilmadi"));
-        log.error(`Paket ichida "${template.dir}" yo'q: ${srcDir}`);
-        log.info("Paket buzilgan bo'lishi mumkin — qayta o'rnatib ko'ring.");
+        copySpinner.stop(pc.red("✗ Template not found"));
+        log.error(`Missing "${template.dir}" inside the package: ${srcDir}`);
+        log.info("The package may be corrupted — try reinstalling it.");
         process.exit(1);
     }
     try {
         await copyTemplate(srcDir, targetDir);
-        copySpinner.stop(pc.green("✓ Template nusxalandi"));
+        copySpinner.stop(pc.green("✓ Template copied"));
     } catch (err) {
-        copySpinner.stop(pc.red("✗ Template nusxalashda xato"));
+        copySpinner.stop(pc.red("✗ Could not copy the template"));
         console.error(err);
         process.exit(1);
     }
 
-    // 2. package.json — name moslash
+    // 2. package.json — match the project name
     const pkgSpinner = spinner();
-    pkgSpinner.start("package.json yangilanmoqda");
+    pkgSpinner.start("Updating package.json");
     try {
         const pkgPath = path.join(targetDir, "package.json");
         const pkg = JSON.parse(await fs.readFile(pkgPath, "utf8"));
@@ -302,9 +302,9 @@ const presetTemplate = args
         delete pkg.private;
         delete pkg.publishConfig;
         await fs.writeFile(pkgPath, JSON.stringify(pkg, null, 2) + "\n", "utf8");
-        pkgSpinner.stop(pc.green("✓ package.json yangilandi"));
+        pkgSpinner.stop(pc.green("✓ package.json updated"));
     } catch (e) {
-        pkgSpinner.stop(pc.yellow(`⚠ package.json yangilashda muammo: ${e?.message}`));
+        pkgSpinner.stop(pc.yellow(`⚠ Could not update package.json: ${e?.message}`));
     }
 
     // 3. Install (pipe output → our spinner)
@@ -312,26 +312,25 @@ const presetTemplate = args
         const cmd = useNpm ? "npm install" : "yarn install";
         let ok = await runInstall(cmd, targetDir);
         if (!ok && !useNpm) {
-            log.warn("yarn ishlamadi, npm bilan urinilyapti...");
+            log.warn("yarn failed, retrying with npm...");
             ok = await runInstall("npm install", targetDir);
         }
         if (!ok) process.exit(1);
     }
 
-    // 4. Yakuniy xabar
+    // 4. Wrap-up message
     const runner = useNpm ? "npm run" : "yarn";
     console.log("");
-    console.log(pc.green(pc.bold("🎉  Tayyor!")));
-    console.log(pc.green(pc.bold("Loyiha muvaffaqiyatli yaratildi.")));
-    console.log(pc.green(pc.bold("Bizning packagedan foydalanganingiz uchun rahmat!.")));
+    console.log(pc.green(pc.bold("🎉  Done!")));
+    console.log(pc.dim("  Your project is ready. Thanks for using create-mantine-vite!"));
     console.log("");
-    console.log(pc.dim("  Keyingi qadamlar:"));
+    console.log(pc.dim("  Next steps:"));
     console.log(`    ${pc.cyan("cd")} ${projectName}`);
     if (skipInstall) console.log(`    ${pc.cyan(useNpm ? "npm install" : "yarn install")}`);
     console.log(`    ${pc.cyan(runner)} dev`);
     console.log("");
 })().catch((err) => {
-    console.error(pc.red("\n  Kutilmagan xato:"));
+    console.error(pc.red("\n  Unexpected error:"));
     console.error(err);
     process.exit(1);
 });
