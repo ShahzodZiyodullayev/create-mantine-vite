@@ -3,42 +3,42 @@
     .mono   { font-family: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace; }
     .sans   { font-family: "Segoe UI Variable Text", "Segoe UI", Inter, system-ui, sans-serif; }
     .cmd    { font-size: 40px; font-weight: 600; letter-spacing: -0.5px; }
-    .npx    { fill: #adb5bd; }
-    .name   { fill: #101418; }
-    .tag    { font-size: 17px; fill: #495057; }
-    .layer  { font-size: 13px; fill: #868e96; }
-    .kicker { font-size: 11px; fill: #adb5bd; letter-spacing: 1.7px; }
+    .npx    { fill: #6c757d; }
+    .name   { fill: #f1f3f5; }
+    .tag    { font-size: 18px; fill: #ced4da; }
+    .layer  { font-size: 14px; fill: #ced4da; }
+    .kicker { font-size: 13px; fill: #868e96; letter-spacing: 1.4px; }
   </style>
 
-  <rect width="1040" height="300" fill="#ffffff"/>
-  <rect x="0.5" y="0.5" width="1039" height="299" fill="none" stroke="#e9ecef"/>
+  <rect width="1040" height="300" rx="12" fill="#101418"/>
+  <rect x="0.5" y="0.5" width="1039" height="299" rx="11.5" fill="none" stroke="#22262b"/>
 
   <!-- The command is the hero: for a CLI, the command is the whole product surface -->
   <text x="56" y="148" class="mono cmd">
     <tspan class="npx">npx </tspan><tspan class="name">create-mantine-vite</tspan>
   </text>
-  <rect x="612" y="118" width="17" height="38" fill="#339af0"/>
+  <rect x="612" y="118" width="17" height="38" fill="#4dabf7"/>
 
-  <line x1="56" y1="182" x2="470" y2="182" stroke="#e9ecef" stroke-width="1"/>
+  <line x1="56" y1="182" x2="470" y2="182" stroke="#22262b" stroke-width="1"/>
 
   <text x="56" y="212" class="sans tag">Production-ready React starter — auth, TanStack Query, SEO</text>
   <text x="56" y="244" class="mono kicker">REACT 19 · MANTINE 8 · VITE 7 · TYPESCRIPT</text>
 
-  <!-- FSD layers. Bar width tracks how widely a layer is depended on:
-       app imports everything, shared is imported by everything. -->
+  <!-- FSD layers. Bar width and intensity both track how widely a layer is
+       depended on: app imports everything, shared is imported by everything. -->
   <text x="816" y="66" class="mono kicker">FEATURE-SLICED DESIGN</text>
-  <g fill="#ced4da">
-    <text x="800" y="94"  class="mono layer" text-anchor="end" fill="#868e96">app</text>
-    <rect x="816" y="87"  width="26"  height="4" rx="2"/>
-    <text x="800" y="122" class="mono layer" text-anchor="end" fill="#868e96">pages</text>
-    <rect x="816" y="115" width="54"  height="4" rx="2"/>
-    <text x="800" y="150" class="mono layer" text-anchor="end" fill="#868e96">widgets</text>
-    <rect x="816" y="143" width="82"  height="4" rx="2"/>
-    <text x="800" y="178" class="mono layer" text-anchor="end" fill="#868e96">features</text>
-    <rect x="816" y="171" width="110" height="4" rx="2"/>
-    <text x="800" y="206" class="mono layer" text-anchor="end" fill="#868e96">entities</text>
-    <rect x="816" y="199" width="138" height="4" rx="2"/>
-    <text x="800" y="234" class="mono layer" text-anchor="end" fill="#868e96">shared</text>
-    <rect x="816" y="227" width="168" height="4" rx="2"/>
+  <g fill="#4dabf7">
+    <text x="800" y="94"  class="mono layer" text-anchor="end">app</text>
+    <rect x="816" y="87"  width="26"  height="4" rx="2" opacity="0.35"/>
+    <text x="800" y="122" class="mono layer" text-anchor="end">pages</text>
+    <rect x="816" y="115" width="54"  height="4" rx="2" opacity="0.46"/>
+    <text x="800" y="150" class="mono layer" text-anchor="end">widgets</text>
+    <rect x="816" y="143" width="82"  height="4" rx="2" opacity="0.57"/>
+    <text x="800" y="178" class="mono layer" text-anchor="end">features</text>
+    <rect x="816" y="171" width="110" height="4" rx="2" opacity="0.68"/>
+    <text x="800" y="206" class="mono layer" text-anchor="end">entities</text>
+    <rect x="816" y="199" width="138" height="4" rx="2" opacity="0.79"/>
+    <text x="800" y="234" class="mono layer" text-anchor="end">shared</text>
+    <rect x="816" y="227" width="168" height="4" rx="2" opacity="0.9"/>
   </g>
 </svg>

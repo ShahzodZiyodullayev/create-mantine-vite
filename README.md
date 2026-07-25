@@ -45,7 +45,7 @@ packages/create-mantine-vite/        # the published npm package
 | Path | Docs |
 |---|---|
 | `packages/create-mantine-vite` | [CLI usage and flags](./packages/create-mantine-vite/README.md) |
-| `packages/create-mantine-vite/templates/mantine-vite` | [Template guide](./packages/create-mantine-vite/templates/mantine-vite/README.md) · [O'zbekcha](./packages/create-mantine-vite/templates/mantine-vite/README.uz.md) |
+| `packages/create-mantine-vite/templates/mantine-vite` | [Template guide](./packages/create-mantine-vite/templates/mantine-vite/README.md) |
 
 ## Development
 

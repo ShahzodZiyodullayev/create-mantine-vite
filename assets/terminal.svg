@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="552" viewBox="0 0 560 552" role="img" aria-label="Terminal session showing npx create-mantine-vite scaffolding a project">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="568" viewBox="0 0 560 568" role="img" aria-label="Terminal session showing npx create-mantine-vite scaffolding a project">
   <style>
     .mono  { font-family: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace; font-size: 13px; }
     .dim   { fill: #868e96; }
-    .ink   { fill: #101418; }
-    .faint { fill: #ced4da; }
-    .blue  { fill: #339af0; }
-    .ok    { fill: #2f9e44; }
+    .ink   { fill: #f1f3f5; }
+    .faint { fill: #495057; }
+    .blue  { fill: #4dabf7; }
+    .ok    { fill: #51cf66; }
   </style>
 
-  <rect width="560" height="552" rx="8" fill="#ffffff"/>
-  <rect x="0.5" y="0.5" width="559" height="551" rx="8" fill="none" stroke="#e9ecef"/>
+  <rect width="560" height="568" rx="8" fill="#101418"/>
+  <rect x="0.5" y="0.5" width="559" height="567" rx="8" fill="none" stroke="#22262b"/>
 
-  <path d="M0 8a8 8 0 0 1 8-8h544a8 8 0 0 1 8 8v32H0z" fill="#f8f9fa"/>
-  <line x1="0" y1="40" x2="560" y2="40" stroke="#e9ecef"/>
-  <circle cx="22" cy="20" r="4" fill="#dee2e6"/>
-  <circle cx="38" cy="20" r="4" fill="#dee2e6"/>
-  <circle cx="54" cy="20" r="4" fill="#dee2e6"/>
+  <path d="M0 8a8 8 0 0 1 8-8h544a8 8 0 0 1 8 8v32H0z" fill="#16191e"/>
+  <line x1="0" y1="40" x2="560" y2="40" stroke="#22262b"/>
+  <circle cx="22" cy="20" r="4" fill="#343a40"/>
+  <circle cx="38" cy="20" r="4" fill="#343a40"/>
+  <circle cx="54" cy="20" r="4" fill="#343a40"/>
 
   <text x="28" y="76" class="mono"><tspan class="faint">$ </tspan><tspan class="ink">npx create-mantine-vite my-app</tspan></text>
 
   <!-- The CLI's REACT banner, drawn from its own block-character grid as rects:
        as <text> the full-block glyph either gaps or overlaps at this size. -->
-  <g fill="#339af0">
+  <g fill="#4dabf7">
     <rect x="40" y="100" width="36" height="12"/>
     <rect x="88" y="100" width="42" height="12"/>
     <rect x="142" y="100" width="30" height="12"/>
@@ -67,8 +67,9 @@
   <text x="28" y="386" class="mono"><tspan class="faint">◇  </tspan><tspan class="ok">✓ Dependencies installed (48s)</tspan></text>
 
   <text x="28" y="428" class="mono ok">🎉  Done!</text>
+  <text x="28" y="450" class="mono dim">  Your project is ready. Thanks for using create-mantine-vite!</text>
 
-  <text x="28" y="470" class="mono dim">  Next steps:</text>
-  <text x="28" y="492" class="mono"><tspan class="blue">    cd</tspan><tspan class="ink"> my-app</tspan></text>
-  <text x="28" y="514" class="mono"><tspan class="blue">    yarn</tspan><tspan class="ink"> dev</tspan></text>
+  <text x="28" y="492" class="mono dim">Next steps:</text>
+  <text x="58" y="514" class="mono"><tspan class="blue">cd</tspan><tspan class="ink"> my-app</tspan></text>
+  <text x="58" y="536" class="mono"><tspan class="blue">yarn</tspan><tspan class="ink"> dev</tspan></text>
 </svg>

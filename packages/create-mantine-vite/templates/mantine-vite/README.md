@@ -1,7 +1,5 @@
 # Mantine Vite Template
 
-> 🇺🇿 [O'zbekcha versiyasi](./README.uz.md)
-
 Production-ready React + Mantine + Vite starter with FSD architecture, auth flow, TanStack Query, and SEO out of the box.
 
 ## Quick start
